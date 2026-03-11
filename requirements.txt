@@ -6,6 +6,4 @@ sqlalchemy
 psycopg2-binary
 itsdangerous
 starlette
-aiofiles
-pillow
 python-dotenv

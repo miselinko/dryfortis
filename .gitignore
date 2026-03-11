@@ -24,6 +24,9 @@ env/
 *.log
 uvicorn.log
 
+# Uploaded images (user content, not part of source)
+static/uploads/
+
 # Settings (now stored in DB)
 settings.json
 

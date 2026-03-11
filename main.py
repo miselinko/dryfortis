@@ -57,15 +57,15 @@ DEFAULT_SETTINGS = {
 
 def load_settings() -> dict:
     """Load site settings from DB, fall back to defaults."""
+    db = database.SessionLocal()
     try:
-        db = database.SessionLocal()
         rows = db.query(models.SiteSettings).all()
-        db.close()
         if rows:
-            data = {r.key: r.value for r in rows}
-            return {**DEFAULT_SETTINGS, **data}
+            return {**DEFAULT_SETTINGS, **{r.key: r.value for r in rows}}
     except Exception:
         pass
+    finally:
+        db.close()
     return DEFAULT_SETTINGS.copy()
 
 
