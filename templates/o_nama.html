@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block title %}O nama – Dryfortis | 15+ godina iskustva u hidroizolaciji{% endblock %}
+{% block meta_desc %}Dryfortis osniva Željko Rajičić sa 15+ godina iskustva i 500+ završenih projekata. Profesionalan tim, sertifikovani materijali, garancija na sve radove.{% endblock %}
+{% block og_title %}O nama – Dryfortis hidroizolacija{% endblock %}
+{% block og_desc %}Željko Rajičić i tim Dryfortis – 15+ godina iskustva, 500+ projekata. Garancija na sve radove.{% endblock %}
+
+{% block content %}
+
+<!-- ─── HERO ─── -->
+<section class="relative py-28 flex items-center justify-center overflow-hidden" style="min-height:340px;">
+  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image:url('/static/images/pocetnapozadina.png');"></div>
+  <div class="absolute inset-0 bg-primary/75"></div>
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="text-blue-400 font-semibold text-sm uppercase tracking-widest mb-3">Naša priča</p>
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-5">O nama</h1>
+    <p class="text-slate-300 text-lg max-w-2xl mx-auto">
+      Kompanija sa dugogodišnjim iskustvom u oblasti hidroizolacije, posvećena kvalitetu i zadovoljstvu klijenata.
+    </p>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Ko smo mi</p>
+        <h2 class="text-3xl font-bold text-primary mb-6 section-title-line">Dryfortis</h2>
+        <div class="mt-8 text-slate-600 leading-relaxed space-y-5">
+          <p>
+            Dryfortis je kompanija specijalizovana za izvođenje svih vrsta hidroizolacijskih radova na
+            stambenim i poslovnim objektima. Sa više od 15 godina iskustva u branši, izgradili smo reputaciju
+            pouzdanog i profesionalnog partnera za zaštitu vaše imovine od vode i vlage.
+          </p>
+          <p>
+            Naš tim čine iskusni i stručno osposobljeni majstori koji kontinuirano prate najnovije tehnologije
+            i metode u oblasti hidroizolacije. Koristimo isključivo atestovane materijale vodećih svetskih i
+            evropskih proizvođača.
+          </p>
+          <p>
+            Verujemo da je svaki objekat jedinstven i zahteva individualni pristup. Zato svakom projektu
+            pristupamo pažljivo – od početne dijagnostike i procene, kroz pažljivo planiranje, do finalne
+            ugradnje i predaje pismene garancije.
+          </p>
+          <p>
+            Naši klijenti su naša najveća vrednost. Težimo ka tome da svaki završeni projekat bude referenca
+            koja govori sama za sebe.
+          </p>
+        </div>
+      </div>
+
+      <!-- Visual block -->
+      <div class="relative">
+        <div class="bg-primary rounded-2xl p-8 text-white">
+          <h3 class="text-xl font-bold mb-6 text-blue-300">Naše vrednosti</h3>
+          <div class="space-y-5">
+            {% set values = [
+              ("🎯", "Preciznost", "Svaki detalj je važan. Radimo pedantno i sistematično."),
+              ("🤝", "Pouzdanost", "Poštujemo rokove i dogovorene cene. Bez iznenađenja."),
+              ("💡", "Stručnost", "Stalno se usavršavamo i pratimo nove tehnologije."),
+              ("❤️", "Posvećenost", "Svaki projekat tretiramo kao da je naša vlastita kuća."),
+            ] %}
+            {% for icon, title, desc in values %}
+              <div class="flex items-start gap-4">
+                <div class="text-2xl flex-shrink-0">{{ icon }}</div>
+                <div>
+                  <h4 class="font-semibold text-white mb-1">{{ title }}</h4>
+                  <p class="text-slate-400 text-sm">{{ desc }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS ─── -->
+<section class="py-16 bg-accent">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+      {% set stats = [
+        ("15+", "Godina iskustva"),
+        ("500+", "Završenih projekata"),
+        ("100%", "Zadovoljnih klijenata"),
+        ("3", "Vrste izolacije"),
+      ] %}
+      {% for number, label in stats %}
+        <div>
+          <div class="text-4xl sm:text-5xl font-extrabold mb-2">{{ number }}</div>
+          <div class="text-blue-100 text-sm font-medium uppercase tracking-wider">{{ label }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY US ─── -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-2">Naše prednosti</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-primary">Zašto odabrati nas?</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% set reasons = [
+        ("🏆", "15+ godina iskustva", "Decenijama smo prisutni na tržištu i završili stotine projekata svih vrsta i veličina."),
+        ("🔧", "Kvalitetni materijali", "Koristimo isključivo atestovane materijale vodećih svetskih i evropskih proizvođača."),
+        ("👷", "Profesionalna ugradnja", "Naš tim čine iskusni i sertifikovani majstori sa specijalističkim znanjem."),
+        ("✅", "Pismena garancija", "Dajemo pismenu garanciju na sve izvedene radove – vaša investicija je osigurana."),
+        ("⚡", "Brza realizacija", "Efikasna organizacija rada i striktno poštovanje dogovorenih rokova."),
+        ("📞", "Dostupnost", "Dostupni smo 7 dana u nedelji za sva pitanja i hitne intervencije."),
+      ] %}
+      {% for icon, title, desc in reasons %}
+        <div class="flex gap-4 p-6 rounded-xl bg-slate-50 border border-slate-100">
+          <div class="text-3xl flex-shrink-0">{{ icon }}</div>
+          <div>
+            <h3 class="font-bold text-primary mb-2">{{ title }}</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">{{ desc }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ─── TEAM ─── -->
+{% if workers %}
+<section class="py-20 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-2">Naš tim</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-primary">Upoznajte naš tim</h2>
+      <p class="mt-4 text-slate-500 max-w-xl mx-auto">Iskusni stručnjaci posvećeni kvalitetnom radu i vašem zadovoljstvu.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for worker in workers %}
+        <div class="text-center bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent mx-auto mb-4 flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-primary text-lg">{{ worker.name }}</h3>
+          <p class="text-accent text-sm font-medium mb-2">{{ worker.role }}</p>
+          {% if worker.description %}
+            <p class="text-slate-500 text-sm">{{ worker.description }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ─── CTA ─── -->
+<section class="py-16 bg-primary">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl font-bold text-white mb-4">Sarađujte sa profesionalcima</h2>
+    <p class="text-slate-300 mb-8">Kontaktirajte nas danas za besplatnu konsultaciju i procenu vašeg objekta.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="tel:{{ site.phone }}"
+         class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl transition-colors">
+        {{ site.phone }}
+      </a>
+      <a href="/kontakt"
+         class="inline-flex items-center justify-center gap-2 bg-white text-primary font-semibold px-8 py-4 rounded-xl hover:bg-slate-100 transition-colors">
+        Kontaktirajte nas
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

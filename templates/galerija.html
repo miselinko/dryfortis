@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block title %}Galerija radova – Hidroizolacija Dryfortis | Srbija{% endblock %}
+{% block meta_desc %}Pogledajte fotografije naših završenih hidroizolacionih projekata – ravni krovovi, terase, podrumi, bazeni. Bitumenska, poliuretanska i RevesTech izolacija.{% endblock %}
+{% block og_title %}Galerija radova – Dryfortis hidroizolacija{% endblock %}
+{% block og_desc %}Fotografije završenih projekata – ravni krovovi, terase, podrumi, bazeni. Bitumenska, poliuretanska i RevesTech izolacija.{% endblock %}
+
+{% block content %}
+
+<!-- ─── PAGE HEADER ─── -->
+<section class="relative py-28 flex items-center justify-center overflow-hidden" style="min-height:320px;">
+  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image:url('/static/images/bitumenska.png');"></div>
+  <div class="absolute inset-0 bg-primary/75"></div>
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="text-blue-400 font-semibold text-sm uppercase tracking-widest mb-3">Naši projekti</p>
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Galerija radova</h1>
+    <p class="text-slate-300 text-lg">
+      Pogledajte neke od naših završenih projekata hidroizolacije objekata širom regiona.
+    </p>
+  </div>
+</section>
+
+<!-- ─── GALLERY ─── -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Tab Filter Buttons -->
+    <div class="flex flex-wrap gap-3 justify-center mb-10">
+      <button class="tab-btn active px-5 py-2 rounded-full border border-accent bg-accent text-white font-medium text-sm transition-all"
+              data-filter="all">
+        Sve
+        <span class="ml-1 bg-white/20 text-white text-xs px-1.5 py-0.5 rounded-full">{{ all_images|length }}</span>
+      </button>
+      <button class="tab-btn px-5 py-2 rounded-full border border-slate-300 bg-white text-slate-700 hover:border-accent hover:text-accent font-medium text-sm transition-all"
+              data-filter="bitumenska">
+        Bitumenska
+        <span class="ml-1 bg-slate-100 text-slate-600 text-xs px-1.5 py-0.5 rounded-full">{{ grouped.bitumenska|length }}</span>
+      </button>
+      <button class="tab-btn px-5 py-2 rounded-full border border-slate-300 bg-white text-slate-700 hover:border-accent hover:text-accent font-medium text-sm transition-all"
+              data-filter="poliuretanska">
+        Poliuretanska
+        <span class="ml-1 bg-slate-100 text-slate-600 text-xs px-1.5 py-0.5 rounded-full">{{ grouped.poliuretanska|length }}</span>
+      </button>
+      <button class="tab-btn px-5 py-2 rounded-full border border-slate-300 bg-white text-slate-700 hover:border-accent hover:text-accent font-medium text-sm transition-all"
+              data-filter="revestech">
+        RevesTech
+        <span class="ml-1 bg-slate-100 text-slate-600 text-xs px-1.5 py-0.5 rounded-full">{{ grouped.revestech|length }}</span>
+      </button>
+    </div>
+
+    <!-- No images message -->
+    {% if not all_images %}
+      <div class="text-center py-20">
+        <svg class="w-16 h-16 text-slate-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <h3 class="text-xl font-semibold text-slate-500 mb-2">Galerija je prazna</h3>
+        <p class="text-slate-400">Fotografije radova biće uskoro dodane.</p>
+      </div>
+    {% else %}
+      <!-- Image grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
+        {% for img in all_images %}
+          <div class="gallery-card gallery-item"
+               data-category="{{ img.category }}"
+               data-lightbox="{{ img.filename }}"
+               data-caption="{{ img.description or (img.category|title + ' hidroizolacija') }}">
+            <img src="{{ img.filename }}"
+                 alt="{{ img.description or 'Hidroizolacija' }}"
+                 loading="lazy" />
+            <div class="gallery-overlay">
+              <div>
+                <span class="block text-xs text-blue-300 mb-0.5">
+                  {% if img.category == 'bitumenska' %}Bitumenska
+                  {% elif img.category == 'poliuretanska' %}Poliuretanska
+                  {% elif img.category == 'revestech' %}RevesTech
+                  {% else %}Ostalo{% endif %}
+                </span>
+                {% if img.description %}
+                  <span class="text-white text-sm">{{ img.description }}</span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Empty category messages (shown via JS when filter active) -->
+      <div id="no-results-msg" class="hidden text-center py-12">
+        <p class="text-slate-400 text-lg">Uskoro...</p>
+        <p class="text-slate-300 text-sm mt-2">Nema slika u ovoj kategoriji za sada.</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="py-16 bg-slate-50 border-t border-slate-100">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl font-bold text-primary mb-4">Trebate hidroizolaciju?</h2>
+    <p class="text-slate-500 mb-8">Pozovite nas i dogovorite besplatnu procenu vašeg objekta.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="tel:{{ site.phone }}"
+         class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-light text-white font-semibold px-8 py-4 rounded-xl transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        {{ site.phone }}
+      </a>
+      <a href="/kontakt"
+         class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl transition-colors">
+        Pošaljite upit
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Enhanced tab filtering with empty state
+(function() {
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const cards = document.querySelectorAll('.gallery-card');
+  const noResultsMsg = document.getElementById('no-results-msg');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      tabBtns.forEach(b => {
+        b.classList.remove('active', 'bg-accent', 'text-white', 'border-accent');
+        b.classList.add('bg-white', 'text-slate-700', 'border-slate-300');
+      });
+      btn.classList.add('active', 'bg-accent', 'text-white', 'border-accent');
+      btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-300');
+
+      let visibleCount = 0;
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (noResultsMsg) {
+        noResultsMsg.classList.toggle('hidden', visibleCount > 0);
+      }
+    });
+  });
+})();
+</script>
+{% endblock %}

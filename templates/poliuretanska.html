@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+
+{% block title %}Tečna poliuretanska hidroizolacija bez šavova – Dryfortis{% endblock %}
+{% block meta_desc %}Tečna poliuretanska hidroizolacija formira monolitni sloj bez šavova i spojeva. Idealna za krovove, terase i bazene. Dryfortis – pozovite za besplatnu procenu: 065/832-27-79.{% endblock %}
+{% block og_title %}Poliuretanska hidroizolacija bez šavova – Dryfortis{% endblock %}
+{% block og_desc %}Monolitni sloj bez šavova za krovove, terase i bazene. Besplatna procena. Pozovite: 065/832-27-79.{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Tečna poliuretanska hidroizolacija",
+  "provider": { "@id": "{{ BASE_URL }}/#business" },
+  "serviceType": "Waterproofing",
+  "description": "Tečna poliuretanska hidroizolacija bez šavova i spojeva. Idealna za krovove, terase i bazene.",
+  "areaServed": { "@type": "Country", "name": "Serbia" },
+  "url": "{{ BASE_URL }}/poliuretanska"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- ─── HERO ─── -->
+<section class="hero-bg-tecna relative py-36 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/70"></div>
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="text-blue-400 font-semibold text-sm uppercase tracking-widest mb-3">Naša usluga</p>
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-5">Tečna poliuretanska hidroizolacija</h1>
+    <p class="text-slate-300 text-lg max-w-2xl mx-auto">
+      Savremena tečna membrana koja formira besprekoran vodonepropustan sloj bez ijednog šava ili spoja.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+      <a href="tel:{{ site.phone }}"
+         class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-blue-700 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        Pozovite nas
+      </a>
+      <a href="/kontakt"
+         class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors">
+        Pošaljite upit
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DESCRIPTION ─── -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-3">O usluzi</p>
+        <h2 class="text-3xl font-bold text-primary mb-5 section-title-line">Šta je tečna poliuretanska izolacija?</h2>
+        <div class="mt-8 text-slate-600 leading-relaxed space-y-4">
+          <p>
+            Tečna poliuretanska hidroizolacija je savremena metoda koja se nanosi u tečnom stanju i nakon sušenja formira
+            elastičnu, besprekorno glatku membranu bez ijednog šava, spoja ili slabe tačke.
+          </p>
+          <p>
+            Sistem se primenjuje valjkom, četkom ili prskanjem direktno na podlogu, pri čemu se savršeno prilagođava
+            svakoj geometriji, uglovima, detaljima i prodorima. Idealan je za složene površine gde je teško primeniti
+            klasične trake.
+          </p>
+          <p>
+            Poliuretanska membrana je visoko elastična (do 400% izduženja), UV otporna i može se primenjivati
+            i na podovima izloženim saobraćaju, bazenima, fontanama i rezervoarima za vodu.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <h3 class="font-bold text-primary text-lg mb-5">Brze informacije</h3>
+        <div class="space-y-4">
+          {% set info = [
+            ("Trajnost", "15–25 godina"),
+            ("Primena", "Krovovi, terase, bazeni, podovi"),
+            ("Metoda", "Nanošenje valjkom / prskanjem"),
+            ("Elastičnost", "Do 400% izduženja"),
+            ("UV otpornost", "Da – ne degradira na suncu"),
+            ("Garancija", "Pismena garancija 10 godina"),
+          ] %}
+          {% for label, value in info %}
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center pb-3 border-b border-slate-100 last:border-0 gap-0.5">
+              <span class="text-slate-500 text-sm">{{ label }}</span>
+              <span class="font-semibold text-primary text-sm">{{ value }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ADVANTAGES ─── -->
+<section class="py-16 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-2">Prednosti</p>
+      <h2 class="text-3xl font-bold text-primary">Zašto odabrati poliuretansku izolaciju?</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% set advantages = [
+        ("Bez šavova", "Monolitna membrana bez spojeva eliminiše sve slabe tačke gde bi mogla prodreti voda."),
+        ("Visoka elastičnost", "Podnosi pomeranje konstrukcije, temperaturne dilatacije i mikrodeformacije."),
+        ("Brzo sušenje", "Membrana se suši za samo 2–4 sata, pa su radovi brzo završeni uz minimalne smetnje."),
+        ("Primena na svim površinama", "Savršeno se prilagođava uglovima, ivicama, prodorima i složenim geometrijama."),
+        ("UV i hemijska otpornost", "Stabilna pod direktnim sunčevim zračenjem i kontaktom sa hemikalijama."),
+        ("Pogodna za bazene", "Može se koristiti u kontaktu sa pitkom vodom – atestovana za bazene i rezervoare."),
+      ] %}
+      {% for title, desc in advantages %}
+        <div class="bg-white rounded-xl p-6 border border-slate-100 shadow-sm">
+          <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-primary mb-2">{{ title }}</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">{{ desc }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHERE USED ─── -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Primena</p>
+        <h2 class="text-3xl font-bold text-primary mb-6">Gde se primenjuje?</h2>
+        <ul class="check-list space-y-3">
+          <li>Ravni krovovi i terase</li>
+          <li>Balkoni i lođe</li>
+          <li>Bazeni i fontane</li>
+          <li>Rezervoari za vodu i septičke jame</li>
+          <li>Industrijski podovi izloženi hemikalijama</li>
+          <li>Parking etaže i garaže</li>
+          <li>Kupatila i mokri čvorovi</li>
+          <li>Brodogradnja i infrastrukturni objekti</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Proces rada</p>
+        <h2 class="text-3xl font-bold text-primary mb-6">Kako radimo?</h2>
+        <div class="space-y-4">
+          {% set steps = [
+            ("01", "Dijagnostika", "Pregledamo površinu i procenjujemo stanje podloge pre primene."),
+            ("02", "Priprema podloge", "Brušenjem i čišćenjem pripremamo površinu, otklanjamo masnoće i prašinu."),
+            ("03", "Prajmerisanje", "Nanosimo odgovarajući prajmer za bolje prianjanje membrane."),
+            ("04", "Nanošenje membrane", "U jednom ili dva sloja nanosimo poliuretansku membranu do projektovane debljine."),
+            ("05", "Sušenje i kontrola", "Nakon sušenja vršimo detaljnu kontrolu debljine i celovitosti sloja."),
+          ] %}
+          {% for num, title, desc in steps %}
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white font-bold text-sm">{{ num }}</div>
+              <div>
+                <h3 class="font-bold text-primary mb-1">{{ title }}</h3>
+                <p class="text-slate-500 text-sm">{{ desc }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ─── -->
+{% if images %}
+<section class="py-16 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-2">Galerija</p>
+      <h2 class="text-3xl font-bold text-primary">Naši radovi – poliuretanska izolacija</h2>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      {% for img in images %}
+        <div class="gallery-item"
+             data-lightbox="{{ img.filename }}"
+             data-caption="{{ img.description or 'Poliuretanska hidroizolacija' }}">
+          <img src="{{ img.filename }}"
+               alt="{{ img.description or 'Poliuretanska hidroizolacija' }}"
+               loading="lazy" />
+          <div class="gallery-overlay">
+            <span>{{ img.description or 'Poliuretanska izolacija' }}</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% else %}
+<section class="py-16 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-2">Galerija</p>
+    <h2 class="text-3xl font-bold text-primary mb-4">Naši radovi</h2>
+    <p class="text-slate-400">Fotografije radova uskoro...</p>
+  </div>
+</section>
+{% endif %}
+
+<!-- ─── GUARANTEE ─── -->
+<section class="py-12 bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="guarantee-badge text-center">
+      <div class="text-5xl mb-4">💧</div>
+      <h3 class="text-2xl font-bold text-white mb-3">Garancija 10 godina</h3>
+      <p class="text-slate-300">
+        Na sve poliuretanske hidroizolacione radove dajemo <strong class="text-white">pismenu garanciju od 10 godina</strong>.
+        Koristimo isključivo sertifikovane materijale vodećih evropskih i svetskih proizvođača.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="py-16 bg-primary">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl font-bold text-white mb-4">Zatražite besplatnu procenu</h2>
+    <p class="text-slate-300 mb-8">Kontaktirajte nas i dogovorite dolazak stručnjaka na vaš objekat.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="tel:{{ site.phone }}"
+         class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl transition-colors text-lg">
+        {{ site.phone }}
+      </a>
+      <a href="/kontakt"
+         class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-8 py-4 rounded-xl transition-colors text-lg">
+        Pošaljite upit
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

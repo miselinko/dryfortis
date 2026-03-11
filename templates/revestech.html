@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+
+{% block title %}RevesTech sistem hidroizolacije – Garancija 20 godina | Dryfortis{% endblock %}
+{% block meta_desc %}RevesTech – najsavremeniji sistem hidroizolacije za kompleksne geometrije i zahtevne uslove. Garancija 20 godina. Dryfortis, profesionalna izvedba u Srbiji.{% endblock %}
+{% block og_title %}RevesTech hidroizolacija – 20 godina garancije | Dryfortis{% endblock %}
+{% block og_desc %}Najsavremeniji sistem za kompleksne geometrije i zahtevne uslove. Garancija 20 godina. Pozovite: 065/832-27-79.{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "RevesTech sistem hidroizolacije",
+  "provider": { "@id": "{{ BASE_URL }}/#business" },
+  "serviceType": "Waterproofing",
+  "description": "RevesTech – najsavremeniji sistem hidroizolacije za kompleksne geometrije i zahtevne uslove. Garancija 20 godina.",
+  "areaServed": { "@type": "Country", "name": "Serbia" },
+  "url": "{{ BASE_URL }}/revestech"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- ─── HERO ─── -->
+<section class="hero-bg-revestech relative py-36 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/70"></div>
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="inline-block bg-accent/20 border border-accent/40 text-blue-300 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
+      Najsavremeniji sistem
+    </div>
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-5">RevesTech sistem hidroizolacije</h1>
+    <p class="text-slate-300 text-lg max-w-2xl mx-auto">
+      Revolucionarni sistem koji kombinuje fleksibilnost, tvrdoću i dugotrajnost za maksimalnu zaštitu vaše imovine.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+      <a href="tel:{{ site.phone }}"
+         class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-blue-700 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        Pozovite nas
+      </a>
+      <a href="/kontakt"
+         class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors">
+        Pošaljite upit
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DESCRIPTION ─── -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-3">O sistemu</p>
+        <h2 class="text-3xl font-bold text-primary mb-5 section-title-line">Šta je RevesTech sistem?</h2>
+        <div class="mt-8 text-slate-600 leading-relaxed space-y-4">
+          <p>
+            RevesTech je revolucionaran višeslojni sistem hidroizolacije koji kombinuje prednosti klasičnih i savremenih
+            materijala u jedan savršeno integrisani sistem. Razvijen za najzahtevnije primenene u građevinarstvu.
+          </p>
+          <p>
+            Sistem se sastoji od specijalne podloge, prajmera, armaturnog sloja od staklene ili poliesterne tkanine
+            i završnog sloja koji može biti u raznim bojama i teksturama. Rezultat je estetski atraktivna i
+            vodonepropusna površina.
+          </p>
+          <p>
+            RevesTech je posebno pogodan za objekte gde je estetika jednako važna kao i funkcionalnost –
+            terase za stanovanje, hotele, luksuzne stambene komplekse i poslovne objekte.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <h3 class="font-bold text-primary text-lg mb-5">Brze informacije</h3>
+        <div class="space-y-4">
+          {% set info = [
+            ("Trajnost", "20+ godina"),
+            ("Primena", "Terase, hoteli, luksuzni objekti"),
+            ("Metoda", "Višeslojni sistem nanošenja"),
+            ("Estetika", "Više boja i tekstura"),
+            ("UV otpornost", "Maksimalna – zadržava boju"),
+            ("Garancija", "Pismena garancija 20 godina"),
+          ] %}
+          {% for label, value in info %}
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center pb-3 border-b border-slate-100 last:border-0 gap-0.5">
+              <span class="text-slate-500 text-sm">{{ label }}</span>
+              <span class="font-semibold text-primary text-sm">{{ value }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ADVANTAGES ─── -->
+<section class="py-16 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-2">Prednosti</p>
+      <h2 class="text-3xl font-bold text-primary">Prednosti RevesTech sistema</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% set advantages = [
+        ("Dugotrajnost 20+ godina", "Najduži vek trajanja od svih hidroizolacionih sistema zahvaljujući naprednoj formulaciji."),
+        ("Estetski izgled", "Dostupan u raznim bojama i teksturama – izolacija postaje deo dizajna objekta."),
+        ("Otpornost na pritisak", "Podnosi pešački i laki vozilski saobraćaj – idealan za prolazne terase."),
+        ("Temperaturna stabilnost", "Radi pouzdano u opsegu od -30°C do +80°C bez degradacije."),
+        ("Brza ugradnja", "Specifičan sistem primene smanjuje vreme ugradnje i mete klijentima minimalne smetnje."),
+        ("Ekološki prihvatljiv", "Nema opasnih isparenja – siguran za ljude i okolinu tokom i nakon ugradnje."),
+      ] %}
+      {% for title, desc in advantages %}
+        <div class="bg-white rounded-xl p-6 border border-slate-100 shadow-sm">
+          <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-primary mb-2">{{ title }}</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">{{ desc }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHERE USED ─── -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Primena</p>
+        <h2 class="text-3xl font-bold text-primary mb-6">Gde se primenjuje?</h2>
+        <ul class="check-list space-y-3">
+          <li>Luksuzne stambene terase i krovne terase</li>
+          <li>Hotelski bazeni i spa zone</li>
+          <li>Poslovne zgrade i kancelarijski kompleksi</li>
+          <li>Šoping centri i javni prostori</li>
+          <li>Sportski tereni i tribine</li>
+          <li>Mostovi i viadukti</li>
+          <li>Parking garaže i etažni parkozi</li>
+          <li>Arhitektonski zahtevni objekti</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Slojevi sistema</p>
+        <h2 class="text-3xl font-bold text-primary mb-6">Kako je sistem izgrađen?</h2>
+        <div class="space-y-4">
+          {% set layers = [
+            ("Sloj 1", "Priprema podloge", "Brušenje, čišćenje i sanacija svih neravnina i pukotina."),
+            ("Sloj 2", "Specijalni prajmer", "Epoksidni ili poliuretanski prajmer za optimalno prianjanje."),
+            ("Sloj 3", "Armaturna tkanina", "Staklena ili poliestarska tkanina za ojačanje sistema."),
+            ("Sloj 4", "Osnovna membrana", "Tečna membrana koja daje vodonepropusnost sistemu."),
+            ("Sloj 5", "Završni sloj", "UV otporan završni premaz u odabranoj boji i teksturi."),
+          ] %}
+          {% for num, title, desc in layers %}
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-accent to-primary-light rounded-full flex items-center justify-center text-white font-bold text-xs">{{ num }}</div>
+              <div>
+                <h3 class="font-bold text-primary mb-1">{{ title }}</h3>
+                <p class="text-slate-500 text-sm">{{ desc }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ─── -->
+{% if images %}
+<section class="py-16 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-2">Galerija</p>
+      <h2 class="text-3xl font-bold text-primary">Naši radovi – RevesTech</h2>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      {% for img in images %}
+        <div class="gallery-item"
+             data-lightbox="{{ img.filename }}"
+             data-caption="{{ img.description or 'RevesTech hidroizolacija' }}">
+          <img src="{{ img.filename }}"
+               alt="{{ img.description or 'RevesTech hidroizolacija' }}"
+               loading="lazy" />
+          <div class="gallery-overlay">
+            <span>{{ img.description or 'RevesTech' }}</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% else %}
+<section class="py-16 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-2">Galerija</p>
+    <h2 class="text-3xl font-bold text-primary mb-4">Naši radovi</h2>
+    <p class="text-slate-400">Fotografije radova uskoro...</p>
+  </div>
+</section>
+{% endif %}
+
+<!-- ─── GUARANTEE ─── -->
+<section class="py-12 bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="guarantee-badge text-center">
+      <div class="text-5xl mb-4">🏅</div>
+      <h3 class="text-2xl font-bold text-white mb-3">Garancija 20 godina</h3>
+      <p class="text-slate-300">
+        RevesTech sistem dolazi sa <strong class="text-white">pismenom garancijom od 20 godina</strong> –
+        najduža garancija u industriji hidroizolacije. Vaš kriv ili terasa zaštićeni su za generacije.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="py-16 bg-primary">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl font-bold text-white mb-4">Saznajte više o RevesTech sistemu</h2>
+    <p class="text-slate-300 mb-8">Kontaktirajte nas za stručnu konsultaciju i besplatnu procenu vašeg objekta.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="tel:{{ site.phone }}"
+         class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl transition-colors text-lg">
+        {{ site.phone }}
+      </a>
+      <a href="/kontakt"
+         class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-8 py-4 rounded-xl transition-colors text-lg">
+        Pošaljite upit
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
