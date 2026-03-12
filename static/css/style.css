@@ -3,6 +3,7 @@
 ───────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
+  color-scheme: light; /* prevent browser dark mode */
 }
 *, *::before, *::after {
   box-sizing: border-box;
@@ -11,6 +12,10 @@ body {
   font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
   background-color: #f8fafc;
   color: #1e293b;
+}
+/* Force light mode everywhere */
+@media (prefers-color-scheme: dark) {
+  html { background: #f8fafc; color: #1e293b; }
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
@@ -28,14 +33,30 @@ h1, h2, h3, h4, h5, h6 {
 .hero-bg-bitumenska {
   background: url('/static/images/bitumenska.png') center/cover no-repeat;
   position: relative;
+  min-height: 420px;
 }
 .hero-bg-tecna {
   background: url('/static/images/tecna.png') center/cover no-repeat;
   position: relative;
+  min-height: 420px;
 }
 .hero-bg-revestech {
   background: url('/static/images/revestech.png') center/cover no-repeat;
   position: relative;
+  min-height: 420px;
+}
+
+@media (max-width: 640px) {
+  .hero-bg {
+    background-position: center top;
+    min-height: 85vh;
+  }
+  .hero-bg-bitumenska,
+  .hero-bg-tecna,
+  .hero-bg-revestech {
+    background-position: center top;
+    min-height: 320px;
+  }
 }
 
 .scroll-arrow {
