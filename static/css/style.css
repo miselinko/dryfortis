@@ -3,19 +3,21 @@
 ───────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  color-scheme: light; /* prevent browser dark mode */
+  color-scheme: only light; /* prevent browser dark mode */
 }
 *, *::before, *::after {
   box-sizing: border-box;
+  color-scheme: only light;
 }
 body {
   font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
   background-color: #f8fafc;
   color: #1e293b;
 }
-/* Force light mode everywhere */
+/* Force light mode everywhere – override any browser dark-mode injection */
 @media (prefers-color-scheme: dark) {
-  html { background: #f8fafc; color: #1e293b; }
+  html, body { background: #f8fafc !important; color: #1e293b !important; }
+  input, textarea, select, button { color-scheme: only light; }
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
@@ -376,6 +378,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ─────────────────────────────────────────
+   Admin Mobile Menu
+───────────────────────────────────────── */
+.admin-mobile-menu {
+  display: none;
+  background: #0c2340;
+  border-top: 1px solid rgba(37, 99, 235, 0.2);
+  position: sticky;
+  top: 48px;
+  z-index: 30;
+}
+.admin-mobile-menu.open {
+  display: block;
+}
+
+/* ─────────────────────────────────────────
    Admin Sidebar
 ───────────────────────────────────────── */
 .admin-sidebar {
@@ -471,4 +488,11 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 640px) {
   body { overflow-x: hidden; }
   img { max-width: 100%; }
+}
+
+/* Admin – tighter content padding on mobile */
+@media (max-width: 767px) {
+  .admin-content-pad {
+    padding: 1rem;
+  }
 }
