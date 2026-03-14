@@ -6,11 +6,15 @@ from typing import Optional
 from dotenv import load_dotenv
 load_dotenv()  # loads .env in local dev; no-op in production
 
+import cloudinary
+import cloudinary.uploader
+
 from fastapi import FastAPI, Request, Depends, Form, UploadFile, File
 from fastapi.responses import HTMLResponse, RedirectResponse, Response, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from datetime import date
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 from starlette.middleware.sessions import SessionMiddleware
 
@@ -18,8 +22,23 @@ import models
 import database
 from database import engine, get_db, check_db_connection
 
+# Configure Cloudinary
+cloudinary.config(
+    cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.environ.get("CLOUDINARY_API_KEY"),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
+    secure=True,
+)
+
 # Create tables
 models.Base.metadata.create_all(bind=engine)
+
+# Migrate: add cloudinary_public_id column if it doesn't exist yet
+with engine.connect() as _conn:
+    _conn.execute(text(
+        "ALTER TABLE gallery_images ADD COLUMN IF NOT EXISTS cloudinary_public_id VARCHAR"
+    ))
+    _conn.commit()
 
 app = FastAPI(title="Dryfortis")
 
@@ -40,12 +59,7 @@ templates = Jinja2Templates(directory="templates")
 
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "admin123")
 
-UPLOAD_DIR = "static/uploads"
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
-
-# Ensure upload directories exist
-for _cat in ["bitumenska", "poliuretanska", "revestech", "ostalo"]:
-    os.makedirs(f"{UPLOAD_DIR}/{_cat}", exist_ok=True)
 
 DEFAULT_SETTINGS = {
     "phone": "0658322779",
@@ -358,16 +372,20 @@ async def admin_upload(
     if ext not in ALLOWED_EXTENSIONS:
         ext = ".jpg"
 
-    unique_name = f"{uuid.uuid4().hex}{ext}"
-    upload_path = f"{UPLOAD_DIR}/{category}/{unique_name}"
-
+    public_id = f"dryfortis/{category}/{uuid.uuid4().hex}"
     contents = await file.read()
-    with open(upload_path, "wb") as f:
-        f.write(contents)
+
+    result = cloudinary.uploader.upload(
+        contents,
+        public_id=public_id,
+        overwrite=False,
+        resource_type="image",
+    )
 
     img = models.GalleryImage(
         category=category,
-        filename=f"/static/uploads/{category}/{unique_name}",
+        filename=result["secure_url"],
+        cloudinary_public_id=result["public_id"],
         description=description.strip() or None,
     )
     db.add(img)
@@ -387,10 +405,8 @@ async def admin_delete_image(
 
     img = db.query(models.GalleryImage).filter(models.GalleryImage.id == image_id).first()
     if img:
-        if img.filename.startswith("/static/uploads/"):
-            local_path = img.filename.lstrip("/")
-            if os.path.exists(local_path):
-                os.remove(local_path)
+        if img.cloudinary_public_id:
+            cloudinary.uploader.destroy(img.cloudinary_public_id)
         db.delete(img)
         db.commit()
 

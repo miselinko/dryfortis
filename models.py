@@ -8,7 +8,8 @@ class GalleryImage(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     category = Column(String, nullable=False)  # "bitumenska" / "poliuretanska" / "revestech" / "ostalo"
-    filename = Column(String, nullable=False)   # path: /static/uploads/category/file.jpg
+    filename = Column(String, nullable=False)   # Cloudinary URL
+    cloudinary_public_id = Column(String, nullable=True)  # Cloudinary public_id for deletion
     description = Column(String, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 

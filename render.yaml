@@ -14,6 +14,12 @@ services:
         generateValue: true
       - key: ADMIN_PASSWORD
         sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
 
 databases:
   - name: dryfortis-db
