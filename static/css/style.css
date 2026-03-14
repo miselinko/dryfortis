@@ -4,6 +4,8 @@
 html {
   scroll-behavior: smooth;
   color-scheme: only light; /* prevent browser dark mode */
+  overflow-x: hidden;
+  max-width: 100%;
 }
 *, *::before, *::after {
   box-sizing: border-box;
@@ -13,6 +15,8 @@ body {
   font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
   background-color: #f8fafc;
   color: #1e293b;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 /* ─────────────────────────────────────────
    Force light mode – comprehensive dark mode prevention
